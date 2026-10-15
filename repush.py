@@ -60,11 +60,11 @@ def read_numbers_interactive() -> list[str]:
     """
     Interactive input:
       - Press Enter to commit the current line and continue
-      - Type DONE and press Enter to finish input
+      - Type 'D' and press Enter to finish input
       - Supports pasting multiple lines
     """
     print("Enter order numbers (one per line).")
-    print("Type DONE and press Enter when DONE.")
+    print("Type 'D' and press Enter when DONE.")
     print("-" * 60)
 
     lines: list[str] = []
@@ -85,8 +85,8 @@ def read_numbers_interactive() -> list[str]:
             line = flush_line()
             print()  # echo newline
 
-            # Finish when user types DONE (case-insensitive) on its own line
-            if line.strip().upper() == "DONE":
+            # Finish when user types "D" (case-insensitive) on its own line
+            if line.strip().upper() == "D":
                 lines.pop()  # remove sentinel from payload
                 break
 
@@ -107,7 +107,7 @@ def read_numbers_interactive() -> list[str]:
             if ch == "\n":
                 line = flush_line()
                 print()
-                if line.strip().upper() == "DONE":
+                if line.strip().upper() == "D":
                     lines.pop()
                     break
             else:
